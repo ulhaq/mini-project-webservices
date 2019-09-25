@@ -1,0 +1,23 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://localhost:8081/stats"
+           targetNamespace="http://localhost:8081/stats">
+
+
+    <xs:element name="getStatsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="stats" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getStatsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="users" type="xs:long"/>
+                <xs:element name="messages" type="xs:long"/>
+                <xs:element name="comments" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
