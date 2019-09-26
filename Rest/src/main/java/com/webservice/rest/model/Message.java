@@ -27,7 +27,7 @@ public class Message {
     Student student;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "message", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "message", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     List<Comment> comments = new ArrayList<>();
 
     public Long getId() {

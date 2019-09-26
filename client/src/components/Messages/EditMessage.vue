@@ -19,6 +19,11 @@
                 <button class="btn btn-primary">Update</button>
               </div>
             </form>
+            <form @submit.prevent="deleteMessage">
+              <div class="form-group">
+                <button class="btn btn-danger">Delete</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -41,6 +46,11 @@ export default {
   methods: {
     updateMessage() {
       this.axios.put(`http://localhost:8080/messages/${this.$route.params.id}`, this.message).then(() => {
+        this.$router.push({ name: "indexMessage" });
+      });
+    },
+    deleteMessage() {
+      this.axios.delete(`http://localhost:8080/messages/${this.$route.params.id}`, this.message).then(() => {
         this.$router.push({ name: "indexMessage" });
       });
     }
